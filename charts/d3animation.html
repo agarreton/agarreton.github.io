@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>D3 Exercises</title>
+</head>
+<body>
+    <svg width="900" height="500"></svg>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
+    	// d3.select("svg")
+    	//   .append("circle")
+    	//   .style({"fill":"rgb(255,0,0)"})
+    	//   .attr("r",20)
+    	//   .attr("cy", 50)
+    	//   .attr("cx", 10)
+    	//   .transition()
+    	//   .duration(1000)
+    	//   .attr("cx",300)
+    	//   .attr("cy",300)
+    	//   .style({"fill":"rgb(0,0,255)"})
+    	//   .attr("r",200)
+    	//   .delay(1000);
+
+    	d3.select("svg")
+    	  .selectAll("circle")
+    	  .data([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+    	  .enter()
+    	  .append("circle")
+    	  .style({"fill":"lavender"})
+    	  .attr("r", 20)
+    	  .attr("cx", function(d){ return d * 7; })
+    	  .attr("cy", "10%")
+    	  // .transition()
+    	  // .style({"fill":"rgb(0,0,255)"})
+    	  // .duration(2000)
+    	  // .delay(function(d, i){ return i * 250; }) //each delay will get longer and longer for each circle
+    	  // .attr("cy", "90%");
+    	  .on("mouseover", function(d){
+    	  		d3.select(this)
+    	  		  .transition()
+    	  		  .duration(400)
+    	  		  .style({"fill":"rgb(0,0,255)"})
+    	  		  .attr("r",30);
+
+    	  })
+
+    	      .on("mouseout", function(d){
+
+        //return values back to the their defaults when mouse is off
+        d3.select(this)
+            .transition()
+            .duration(400)
+            .delay(500)
+            .style({"fill":"lavender"})
+            .attr("r", 20);
+    });
+
+
+
+    </script>
+</body>
+</html>

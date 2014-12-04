@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!-- <h1 id="maintitle">Alexandra Garreton</h1>
+
+	<div id="container"></div>
+ -->
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+	// d3.select("#maintitle")
+	//   .text("Beatrice")
+	//   .style({color:"lavender", "font-size":"80px"})
+
+	// d3.select("#container")
+	//   .append("svg")
+	//   .attr("width",400)
+	//   .attr("height", 400)
+	//   .append("circle")
+	//   .attr("cx", 50)
+	//   .attr("cy", 50)
+	//   .attr("r",25)
+	//   .style({"fill":"coral"});
+	
+	var svg = d3.select("body")
+			    .append("svg")
+			    .attr("width", 800)
+			    .attr("height", 400);
+		svg.selectAll(".bubbles")
+		   .data([34, 23, 56, 12, 57])
+		   .enter()
+		   .append("circle")
+		   .attr("cy", function(d,i){ return 100; })
+		   .attr("cx", function(d,i){ return i * 100 + 100;})
+		   .attr("r", function(d,i){return d;})
+		   .style({"fill":"purple"});
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

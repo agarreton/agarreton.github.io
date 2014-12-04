@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+    
+    
+    
+    <script type="text/javascript" charset="utf-8">
+        var bubble = d3.layout.pack()
+            .sort(null)
+            .size([300, 300])
+            .padding(1);
+  
+        var format = d3.format(",d"),
+            color = d3.scale.category20c();
+            
+            
+        /**********
+         *
+         *  Using d3, create an SVG element, and then assign an array of numbers to "thedata" variable.
+         *
+         *  Use d3's "data" and "enter" methods to create a bubble chart.
+         *  You can find the bubble's center point by accessing it through d.x and d.y, and the radius through d.r. 
+         */    
+            
+
+                    
+        var data = [1000,1200,1500,1350,1720,1000,500,1500,1350,1720,1000,1200,1500,1350,1720,1000,1200,1500,1350,1720,1000,1200,1500,1350,1720,1000,500,1500,1350,1720,1000,1200,1500,1350,1720,1000,1200,1500,1350,1720];
+       
+        
+        //don't edit this line, just ignore it
+        thedata = bubble.nodes({children:data.map(function(d){ return {value: d};})}).filter(function(d){ return !d.children;});
+
+        var svg= d3.select("body")
+                   .append("svg")
+                   .attr("width", 300)
+                   .attr("height", 300);
+
+        svg.selectAll(".bubbles")
+           .data(thedata)
+           .enter()
+           .append("circle")
+           .attr("r",10)
+           .attr("cy",300)
+           .attr("cx",300)
+           .transition()
+           .duration(2000)
+           .attr("cx", function(d,i){return d.x;})
+           .attr("cy", function(d,i){return d.y;})
+           .attr("r", function(d,i){return d.r;})
+           .style({"fill":"coral"});
+
+                    
+            
+        
+    </script>
+</body>
+</html>
