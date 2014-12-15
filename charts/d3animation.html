@@ -48,12 +48,11 @@
 
     	      .on("mouseout", function(d){
 
-        //return values back to the their defaults when mouse is off
         d3.select(this)
             .transition()
             .duration(400)
             .delay(500)
-            .style({"fill":"lavender"})
+            .style({"fill":"coral"})
             .attr("r", 20);
     });
 
